@@ -1,6 +1,10 @@
+import {globals} from "./global.styles";
+
 const App = () => {
     return (
-        <div>Hello world</div>
+        <div className={globals}>
+            Hello world!
+        </div>
     )
 }
 
