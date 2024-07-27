@@ -1,4 +1,4 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import wyw from '@wyw-in-js/vite';
 
@@ -10,4 +10,8 @@ export default defineConfig({
             presets: ['@babel/preset-typescript', '@babel/preset-react'],
         },
     }),],
+    server: {
+        port: 3000, open: true
+    }
 })
+
