@@ -3,9 +3,10 @@ import { ColorProps } from './types'
 import { ColorContainer, ColorPickerWrapper, ColorText } from "./styles";
 import { ColorPicker } from "react-pick-color";
 import { useOutsideClick } from "../../hooks";
+import { ColorButtons } from "../ColorButtons/ColorButtons";
 
 export const Color: React.FC<ColorProps> = ({ color: colorProp }) => {
-    const [color, setColor] = useState('#fff');
+    const [color, setColor] = useState('');
     const [isOpenedColorPicker, setIsOpenedColorPicker] = useState(false);
 
     const colorNameRef = useRef<HTMLDivElement>(null);
@@ -21,6 +22,8 @@ export const Color: React.FC<ColorProps> = ({ color: colorProp }) => {
         <ColorContainer
             backgroundColor={color}
         >
+            <ColorButtons color={color}/>
+
             <ColorText
                 ref={colorNameRef}
                 onClick={() => setIsOpenedColorPicker(true)}
