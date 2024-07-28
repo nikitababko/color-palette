@@ -12,7 +12,7 @@ export const globals = css`
       font-style: normal;
     }
 
-    *,
+    *, html, body,
     *:before,
     *:after {
       font-family: 'Roboto', sans-serif;
