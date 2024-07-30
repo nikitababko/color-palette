@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
   "files": [],
   "references": [
     {
@@ -9,6 +12,10 @@
     }
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "src"
   ]
 }

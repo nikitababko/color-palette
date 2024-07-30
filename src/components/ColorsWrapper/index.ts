@@ -1,1 +1,1 @@
-export * from './ColorsWrapper'
+export * from './ColorsWrapper';

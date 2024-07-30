@@ -1,12 +1,14 @@
-import { styled } from "@linaria/react";
+import { styled } from '@linaria/react';
 
 export const CopyIconWrapper = styled.button`
   cursor: copy;
   border: none;
   background-color: transparent;
-`
+`;
 
-export const CopyButtonMessage = styled.div<{ animationMs: number }>`
+export const CopyButtonMessage = styled.div<{
+  animationMs: number;
+}>`
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -20,7 +22,8 @@ export const CopyButtonMessage = styled.div<{ animationMs: number }>`
   background-color: #222;
   color: #fff;
   font-size: 26px;
-  animation: copyButtonMessageAnimation ${({ animationMs }) => animationMs}ms ease-in-out;
+  animation: copyButtonMessageAnimation
+    ${({ animationMs }) => animationMs}ms ease-in-out;
   opacity: 0;
   visibility: hidden;
 
@@ -41,4 +44,4 @@ export const CopyButtonMessage = styled.div<{ animationMs: number }>`
       opacity: 0;
     }
   }
-`
+`;

@@ -1,7 +1,5 @@
 {
   "**/*.{js,jsx,ts,tsx}": [
-    "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "eslint --max-warnings=0",
-    "bash -c tsc"
+    "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   ]
 }

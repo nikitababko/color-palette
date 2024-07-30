@@ -1,3 +1,3 @@
 export type ColorProps = {
-    color: string
-}
+  color: string;
+};

@@ -1,3 +1,3 @@
 export type ColorButtonCopyProps = {
-    color: string
-}
+  color: string;
+};

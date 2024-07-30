@@ -1,46 +1,59 @@
-import React, { useEffect, useState } from 'react'
-import { createPortal } from "react-dom";
-import { ColorButtonCopyProps } from "./types";
-import { CopyIcon } from "../Icons";
-import { CopyButtonMessage, CopyIconWrapper } from "./styles";
-import { CheckIcon } from "../Icons/CheckIcon";
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import type { ColorButtonCopyProps } from './types';
+import { CopyIcon } from '../Icons';
+import {
+  CopyButtonMessage,
+  CopyIconWrapper,
+} from './styles';
+import { CheckIcon } from '../Icons/CheckIcon';
 
-export const ColorButtonCopy: React.FC<ColorButtonCopyProps> = ({ color }) => {
-    const [isCopied, setIsCopied] = useState(false)
+export const ColorButtonCopy: React.FC<
+  ColorButtonCopyProps
+> = ({ color }) => {
+  const [isCopied, setIsCopied] = useState(false);
 
-    const animationMs = 3000
+  const animationMs = 3000;
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(color).then(() => {
-            setIsCopied(true)
-        }).catch((error) => {
-            throw new Error(`Failed to copy text to clipboard: ${error}`);
-        })
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(color)
+      .then(() => {
+        setIsCopied(true);
+      })
+      .catch((error) => {
+        throw new Error(
+          `Failed to copy text to clipboard: ${error}`,
+        );
+      });
+  };
+
+  useEffect(() => {
+    let timerId: NodeJS.Timeout;
+
+    if (isCopied) {
+      timerId = setTimeout(() => {
+        setIsCopied(false);
+      }, animationMs);
     }
 
-    useEffect(() => {
-        let timerId: NodeJS.Timeout
+    return () => clearTimeout(timerId);
+  }, [isCopied, animationMs]);
 
-        if (isCopied) {
-            timerId = setTimeout(() => {
-                setIsCopied(false)
-            }, animationMs)
-        }
+  return (
+    <CopyIconWrapper onClick={handleCopy}>
+      <CopyIcon />
 
-        return () => clearTimeout(timerId)
-    }, [isCopied, animationMs])
+      {isCopied &&
+        createPortal(
+          <CopyButtonMessage animationMs={animationMs}>
+            <CheckIcon />
 
-    return (
-        <CopyIconWrapper onClick={handleCopy}>
-            <CopyIcon/>
-
-            {isCopied && createPortal(
-                <CopyButtonMessage animationMs={animationMs}>
-                    <CheckIcon/>
-                    <span>Color copied to the clipboard!</span>
-                </CopyButtonMessage>,
-                document.getElementById('root') as HTMLElement, 'CopyButtonMessage'
-            )}
-        </CopyIconWrapper>
-    )
-}
+            <span>Color copied to the clipboard!</span>
+          </CopyButtonMessage>,
+          document.querySelector('#root') as HTMLElement,
+          'CopyButtonMessage',
+        )}
+    </CopyIconWrapper>
+  );
+};

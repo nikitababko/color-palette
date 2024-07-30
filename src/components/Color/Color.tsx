@@ -1,46 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { ColorProps } from './types'
-import { ColorContainer, ColorPickerWrapper, ColorText } from "./styles";
-import { ColorPicker } from "react-pick-color";
-import { useOutsideClick } from "../../hooks";
-import { ColorButtons } from "../ColorButtons/ColorButtons";
+import React, { useEffect, useRef, useState } from 'react';
+import { ColorPicker } from 'react-pick-color';
+import type { ColorProps } from './types';
+import {
+  ColorContainer,
+  ColorPickerWrapper,
+  ColorText,
+} from './styles';
+import { useOutsideClick } from '../../hooks';
+import { ColorButtons } from '../ColorButtons/ColorButtons';
 
-export const Color: React.FC<ColorProps> = ({ color: colorProp }) => {
-    const [color, setColor] = useState('');
-    const [isOpenedColorPicker, setIsOpenedColorPicker] = useState(false);
+export const Color: React.FC<ColorProps> = ({
+  color: colorProperty,
+}) => {
+  const [color, setColor] = useState('');
+  const [isOpenedColorPicker, setIsOpenedColorPicker] =
+    useState(false);
 
-    const colorNameRef = useRef<HTMLDivElement>(null);
-    const colorPickerWrapperRef = useRef<HTMLDivElement>(null);
+  const colorNameReference = useRef<HTMLDivElement>(null);
+  const colorPickerWrapperReference =
+    useRef<HTMLDivElement>(null);
 
-    useOutsideClick([colorNameRef, colorPickerWrapperRef], () => setIsOpenedColorPicker(false));
+  useOutsideClick(
+    [colorNameReference, colorPickerWrapperReference],
+    () => setIsOpenedColorPicker(false),
+  );
 
-    useEffect(() => {
-        setColor(colorProp)
-    }, [colorProp])
+  useEffect(() => {
+    setColor(colorProperty);
+  }, [colorProperty]);
 
-    return (
-        <ColorContainer
-            backgroundColor={color}
+  return (
+    <ColorContainer backgroundColor={color}>
+      <ColorButtons color={color} />
+
+      <ColorText
+        ref={colorNameReference}
+        onClick={() => setIsOpenedColorPicker(true)}
+      >
+        {color.toUpperCase()}
+      </ColorText>
+
+      {isOpenedColorPicker && (
+        <ColorPickerWrapper
+          ref={colorPickerWrapperReference}
         >
-            <ColorButtons color={color}/>
-
-            <ColorText
-                ref={colorNameRef}
-                onClick={() => setIsOpenedColorPicker(true)}
-            >
-                {color.toUpperCase()}
-            </ColorText>
-
-            {isOpenedColorPicker &&
-                <ColorPickerWrapper
-                    ref={colorPickerWrapperRef}
-                >
-                    <ColorPicker
-                        color={color}
-                        onChange={color => setColor(color.hex)}
-                    />
-                </ColorPickerWrapper>
-            }
-        </ColorContainer>
-    )
-}
+          <ColorPicker
+            color={color}
+            onChange={({ hex }) => setColor(hex)}
+          />
+        </ColorPickerWrapper>
+      )}
+    </ColorContainer>
+  );
+};

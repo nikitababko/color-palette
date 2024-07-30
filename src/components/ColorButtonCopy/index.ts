@@ -1,1 +1,1 @@
-export * from './ColorButtonCopy'
+export * from './ColorButtonCopy';
