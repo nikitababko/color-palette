@@ -1,3 +1,6 @@
-export type ColorButtonsProps = {
-  color: string;
-};
+import type { ColorProps } from '../Color/types';
+
+export type ColorButtonsProps = Pick<
+  ColorProps,
+  'color' | 'setColors' | 'colorsLength'
+>;

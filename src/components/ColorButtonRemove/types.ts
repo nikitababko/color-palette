@@ -1,6 +1,6 @@
 import type { ColorProps } from '../Color/types';
 
-export type ColorButtonCopyProps = Pick<
+export type ColorButtonRemoveProps = Pick<
   ColorProps,
-  'color'
+  'color' | 'setColors'
 >;
