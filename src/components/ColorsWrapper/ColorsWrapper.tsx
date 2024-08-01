@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ColorsContainer } from './styles';
 import { Color } from '../Color';
+import type { ColorsWrapperProps } from './types';
 
-export const ColorsWrapper: React.FC = () => {
-  const [colors, setColors] = useState([
-    '#ABC4AB',
-    '#A39171',
-    '#DCC9B6',
-    '#727D71',
-    '#6D4C3D',
-  ]);
-
+export const ColorsWrapper: React.FC<
+  ColorsWrapperProps
+> = ({ colors, setColors }) => {
   return (
     <ColorsContainer>
       {colors.map((color) => (

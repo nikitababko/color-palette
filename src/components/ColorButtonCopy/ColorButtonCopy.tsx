@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { ColorButtonCopyProps } from './types';
-import { CopyIcon } from '../Icons';
+import { CheckIcon, CopyIcon } from '../Icons';
 import {
   CopyButtonMessage,
   CopyIconWrapper,
 } from './styles';
-import { CheckIcon } from '../Icons/CheckIcon';
 
 export const ColorButtonCopy: React.FC<
   ColorButtonCopyProps
