@@ -1,9 +1,11 @@
 import React from 'react';
 import { GenerateButton } from '../GenerateButton';
-import type { ToolbarProps } from './types';
+import { ToolbarContainer } from './styles';
 
-export const Toolbar: React.FC<ToolbarProps> = ({
-  setColors,
-}) => {
-  return <GenerateButton setColors={setColors} />;
+export const Toolbar: React.FC = () => {
+  return (
+    <ToolbarContainer>
+      <GenerateButton />
+    </ToolbarContainer>
+  );
 };

@@ -11,7 +11,6 @@ import { ColorButtons } from '../ColorButtons/ColorButtons';
 
 export const Color: React.FC<ColorProps> = ({
   color: colorProperty,
-  setColors,
   colorsLength,
 }) => {
   const [color, setColor] = useState('');
@@ -35,7 +34,6 @@ export const Color: React.FC<ColorProps> = ({
     <ColorContainer backgroundColor={color}>
       <ColorButtons
         color={color}
-        setColors={setColors}
         colorsLength={colorsLength}
       />
 

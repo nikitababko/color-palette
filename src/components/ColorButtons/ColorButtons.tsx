@@ -6,16 +6,12 @@ import { ColorButtonRemove } from '../ColorButtonRemove';
 
 export const ColorButtons: React.FC<ColorButtonsProps> = ({
   color,
-  setColors,
   colorsLength,
 }) => {
   return (
     <ColorButtonsContainer>
       {colorsLength > 2 && (
-        <ColorButtonRemove
-          color={color}
-          setColors={setColors}
-        />
+        <ColorButtonRemove color={color} />
       )}
 
       <ColorButtonCopy color={color} />

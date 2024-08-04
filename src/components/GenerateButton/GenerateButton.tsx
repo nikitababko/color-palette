@@ -1,6 +1,7 @@
 import React from 'react';
+import { useSetAtom } from 'jotai';
 import { GenerateButtonContainer } from './styles';
-import type { GenerateButtonProps } from './types';
+import { storeColors } from '../../store/store';
 
 const getRandomHexColor = () => {
   const randomValue = Math.floor(
@@ -11,9 +12,9 @@ const getRandomHexColor = () => {
   return `#${hexValue.padStart(6, '0')}`;
 };
 
-export const GenerateButton: React.FC<
-  GenerateButtonProps
-> = ({ setColors }) => {
+export const GenerateButton: React.FC = () => {
+  const setColors = useSetAtom(storeColors);
+
   const handleGenerate = () => {
     setColors((previousState) => {
       return previousState.map(() => getRandomHexColor());
