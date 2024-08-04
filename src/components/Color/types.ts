@@ -1,4 +1,6 @@
+import type { ColorType } from '../../store/types';
+
 export type ColorProps = {
-  color: string;
+  color: ColorType;
   colorsLength: number;
 };

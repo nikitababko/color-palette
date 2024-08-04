@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 import type { ColorButtonCopyProps } from './types';
 import { CheckIcon, CopyIcon } from '../Icons';
 import {
+  ColorButtonCopyContainer,
   CopyButtonMessage,
-  CopyIconWrapper,
 } from './styles';
 
 export const ColorButtonCopy: React.FC<
@@ -40,7 +40,7 @@ export const ColorButtonCopy: React.FC<
   }, [isCopied, animationMs]);
 
   return (
-    <CopyIconWrapper onClick={handleCopy}>
+    <ColorButtonCopyContainer onClick={handleCopy}>
       <CopyIcon />
 
       {isCopied &&
@@ -53,6 +53,6 @@ export const ColorButtonCopy: React.FC<
           document.querySelector('#root') as HTMLElement,
           'CopyButtonMessage',
         )}
-    </CopyIconWrapper>
+    </ColorButtonCopyContainer>
   );
 };

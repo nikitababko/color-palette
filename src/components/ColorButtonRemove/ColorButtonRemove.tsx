@@ -2,7 +2,7 @@ import React from 'react';
 import { useSetAtom } from 'jotai';
 import type { ColorButtonRemoveProps } from './types';
 import { CrossIcon } from '../Icons';
-import { RemoveIconWrapper } from './styles';
+import { ColorButtonRemoveContainer } from './styles';
 import { storeColors } from '../../store/store';
 
 export const ColorButtonRemove: React.FC<
@@ -13,14 +13,14 @@ export const ColorButtonRemove: React.FC<
   const handleRemove = () => {
     setColors((previousState) => {
       return previousState.filter((previousStateColor) => {
-        return previousStateColor !== color;
+        return previousStateColor.id !== color.id;
       });
     });
   };
 
   return (
-    <RemoveIconWrapper onClick={handleRemove}>
+    <ColorButtonRemoveContainer onClick={handleRemove}>
       <CrossIcon />
-    </RemoveIconWrapper>
+    </ColorButtonRemoveContainer>
   );
 };

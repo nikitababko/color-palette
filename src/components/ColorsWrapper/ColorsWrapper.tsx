@@ -11,7 +11,7 @@ export const ColorsWrapper: React.FC = () => {
     <ColorsContainer>
       {colors.map((color) => (
         <Color
-          key={color}
+          key={color.id}
           color={color}
           colorsLength={colors.length}
         />

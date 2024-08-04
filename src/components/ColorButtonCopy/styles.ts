@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-export const CopyIconWrapper = styled.button`
+export const ColorButtonCopyContainer = styled.button`
   cursor: copy;
   border: none;
   background-color: transparent;

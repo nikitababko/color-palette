@@ -1,9 +1,12 @@
 import React from 'react';
 import type { IconProps } from './types';
 
-export const CheckIcon: React.FC<IconProps> = () => {
+export const CheckIcon: React.FC<IconProps> = (
+  properties,
+) => {
   return (
     <svg
+      {...properties}
       width="24"
       height="24"
       viewBox="0 0 24 24"

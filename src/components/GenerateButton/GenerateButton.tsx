@@ -17,7 +17,16 @@ export const GenerateButton: React.FC = () => {
 
   const handleGenerate = () => {
     setColors((previousState) => {
-      return previousState.map(() => getRandomHexColor());
+      return previousState.map((color) => {
+        if (color.isLocked) {
+          return color;
+        }
+
+        return {
+          ...color,
+          hex: getRandomHexColor(),
+        };
+      });
     });
   };
 

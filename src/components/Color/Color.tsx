@@ -8,12 +8,17 @@ import {
 } from './styles';
 import { useOutsideClick } from '../../hooks';
 import { ColorButtons } from '../ColorButtons/ColorButtons';
+import type { ColorType } from '../../store/types';
 
 export const Color: React.FC<ColorProps> = ({
   color: colorProperty,
   colorsLength,
 }) => {
-  const [color, setColor] = useState('');
+  const [color, setColor] = useState<ColorType>({
+    id: `#ffffff-${Math.random()}`,
+    hex: '#ffffff',
+    isLocked: false,
+  });
   const [isOpenedColorPicker, setIsOpenedColorPicker] =
     useState(false);
 
@@ -31,7 +36,7 @@ export const Color: React.FC<ColorProps> = ({
   }, [colorProperty]);
 
   return (
-    <ColorContainer backgroundColor={color}>
+    <ColorContainer backgroundColor={color?.hex}>
       <ColorButtons
         color={color}
         colorsLength={colorsLength}
@@ -41,7 +46,7 @@ export const Color: React.FC<ColorProps> = ({
         ref={colorNameReference}
         onClick={() => setIsOpenedColorPicker(true)}
       >
-        {color.toUpperCase()}
+        {color?.hex?.toUpperCase()}
       </ColorText>
 
       {isOpenedColorPicker && (
@@ -49,8 +54,12 @@ export const Color: React.FC<ColorProps> = ({
           ref={colorPickerWrapperReference}
         >
           <ColorPicker
-            color={color}
-            onChange={({ hex }) => setColor(hex)}
+            color={color?.hex}
+            onChange={({ hex }) =>
+              setColor((previousState) => {
+                return { ...previousState, hex };
+              })
+            }
           />
         </ColorPickerWrapper>
       )}
