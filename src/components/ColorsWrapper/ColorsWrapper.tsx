@@ -1,21 +1,53 @@
 import React from 'react';
-import { useAtomValue } from 'jotai';
-import { ColorsContainer } from './styles';
-import { Color } from '../Color';
+import {
+  arrayMove,
+  SortableContext,
+} from '@dnd-kit/sortable';
+import { DndContext } from '@dnd-kit/core';
+import { useAtom } from 'jotai';
+import type { DragEndEvent } from '@dnd-kit/core/dist/types';
 import { storeColors } from '../../store/store';
+import { Color } from '../Color';
+import { ColorsContainer } from './styles';
 
 export const ColorsWrapper: React.FC = () => {
-  const colors = useAtomValue(storeColors);
+  const [colors, setColors] = useAtom(storeColors);
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    setColors((previousState) => {
+      const fromIndex = previousState.findIndex(
+        (item) => item.id === active.id,
+      );
+
+      const toIndex = over
+        ? previousState.findIndex(
+            (item) => item.id === over.id,
+          )
+        : -1;
+
+      if (fromIndex === -1 || toIndex === -1) {
+        return previousState;
+      }
+
+      return arrayMove(previousState, fromIndex, toIndex);
+    });
+  };
 
   return (
-    <ColorsContainer>
-      {colors.map((color) => (
-        <Color
-          key={color.id}
-          color={color}
-          colorsLength={colors.length}
-        />
-      ))}
-    </ColorsContainer>
+    <DndContext onDragEnd={handleDragEnd}>
+      <SortableContext items={colors}>
+        <ColorsContainer>
+          {colors.map((color) => (
+            <Color
+              key={color.id}
+              color={color}
+              colorsLength={colors.length}
+            />
+          ))}
+        </ColorsContainer>
+      </SortableContext>
+    </DndContext>
   );
 };

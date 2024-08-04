@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ColorPicker } from 'react-pick-color';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import type { ColorProps } from './types';
 import {
   ColorContainer,
@@ -35,11 +37,26 @@ export const Color: React.FC<ColorProps> = ({
     setColor(colorProperty);
   }, [colorProperty]);
 
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id: color.id });
+
   return (
-    <ColorContainer backgroundColor={color?.hex}>
+    <ColorContainer
+      ref={setNodeRef}
+      backgroundColor={color?.hex}
+      transform={CSS.Transform.toString(transform)}
+      transition={transition}
+    >
       <ColorButtons
         color={color}
         colorsLength={colorsLength}
+        dragAttributes={attributes}
+        dragListeners={listeners}
       />
 
       <ColorText

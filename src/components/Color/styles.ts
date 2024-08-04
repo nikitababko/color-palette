@@ -2,6 +2,8 @@ import { styled } from '@linaria/react';
 
 export const ColorContainer = styled.div<{
   backgroundColor: string;
+  transition?: string;
+  transform?: string;
 }>`
   position: relative;
   display: flex;
@@ -11,8 +13,15 @@ export const ColorContainer = styled.div<{
   gap: 20px;
   flex: 1;
   height: 100%;
-  background-color: ${({ backgroundColor }) =>
-    backgroundColor};
+  background-color: ${({ backgroundColor }) => {
+    return backgroundColor;
+  }};
+  transition: ${({ transition }) => {
+    return transition || 'none';
+  }};
+  transform: ${({ transform }) => {
+    return transform || 'none';
+  }};
 `;
 
 export const ColorText = styled.p`
