@@ -1,11 +1,14 @@
 import React from 'react';
-import { GenerateButton } from '../GenerateButton';
+import { ToolbarGenerateButton } from '../ToolbarGenerateButton';
 import { ToolbarContainer } from './styles';
+import { ToolbarSaveButton } from '../ToolbarSaveButton';
 
 export const Toolbar: React.FC = () => {
   return (
     <ToolbarContainer>
-      <GenerateButton />
+      <ToolbarGenerateButton />
+
+      <ToolbarSaveButton />
     </ToolbarContainer>
   );
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSetAtom } from 'jotai';
-import { GenerateButtonContainer } from './styles';
 import { storeColors } from '../../store/store';
+import { RepeatIcon } from '../Icons';
+import { ToolbarButton } from '../ToolbarButton';
 
 const getRandomHexColor = () => {
   const randomValue = Math.floor(
@@ -12,7 +13,7 @@ const getRandomHexColor = () => {
   return `#${hexValue.padStart(6, '0')}`;
 };
 
-export const GenerateButton: React.FC = () => {
+export const ToolbarGenerateButton: React.FC = () => {
   const setColors = useSetAtom(storeColors);
 
   const handleGenerate = () => {
@@ -31,8 +32,10 @@ export const GenerateButton: React.FC = () => {
   };
 
   return (
-    <GenerateButtonContainer onClick={handleGenerate}>
-      Generate colors
-    </GenerateButtonContainer>
+    <ToolbarButton
+      onClick={handleGenerate}
+      leftSide={<RepeatIcon />}
+      label="Generate colors"
+    />
   );
 };
