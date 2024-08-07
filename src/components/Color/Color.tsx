@@ -70,6 +70,8 @@ export const Color: React.FC<ColorProps> = ({
     });
   };
 
+  const isMaxColorCount = colorsLength >= 10;
+
   return (
     <ColorContainer
       ref={setNodeRef}
@@ -77,19 +79,26 @@ export const Color: React.FC<ColorProps> = ({
       transform={CSS.Transform.toString(transform)}
       transition={transition}
     >
-      {colorIndex !== 0 && (
-        <ColorBar left={0} right="auto">
-          <CircleAdd left="-23px" onClick={handleAddColor}>
-            <PlusIcon />
-          </CircleAdd>
-        </ColorBar>
-      )}
+      {!isMaxColorCount && (
+        <React.Fragment>
+          {colorIndex !== 0 && (
+            <ColorBar left={0} right="auto">
+              <CircleAdd
+                left="-23px"
+                onClick={handleAddColor}
+              >
+                <PlusIcon />
+              </CircleAdd>
+            </ColorBar>
+          )}
 
-      <ColorBar left="auto" right={0}>
-        <CircleAdd left="23px" onClick={handleAddColor}>
-          <PlusIcon />
-        </CircleAdd>
-      </ColorBar>
+          <ColorBar left="auto" right={0}>
+            <CircleAdd left="23px" onClick={handleAddColor}>
+              <PlusIcon />
+            </CircleAdd>
+          </ColorBar>
+        </React.Fragment>
+      )}
 
       <ColorButtons
         color={color}
