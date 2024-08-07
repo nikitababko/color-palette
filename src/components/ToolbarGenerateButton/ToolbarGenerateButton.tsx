@@ -2,8 +2,8 @@ import React from 'react';
 import { useSetAtom } from 'jotai';
 import { storeColors } from '../../store/store';
 import { RepeatIcon } from '../Icons';
-import { ToolbarButton } from '../ToolbarButton';
 import { getRandomHexColor } from '../../helpers';
+import { ToolbarGenerateButtonContainer } from './styled';
 
 export const ToolbarGenerateButton: React.FC = () => {
   const setColors = useSetAtom(storeColors);
@@ -24,10 +24,12 @@ export const ToolbarGenerateButton: React.FC = () => {
   };
 
   return (
-    <ToolbarButton
+    <ToolbarGenerateButtonContainer
       onClick={handleGenerate}
-      leftSide={<RepeatIcon />}
-      label="Generate colors"
-    />
+    >
+      <RepeatIcon />
+
+      <span>Generate colors</span>
+    </ToolbarGenerateButtonContainer>
   );
 };

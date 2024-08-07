@@ -4,6 +4,5 @@ export * from './CrossIcon';
 export * from './LockCloseIcon';
 export * from './LockOpenIcon';
 export * from './DragIcon';
-export * from './SaveIcon';
 export * from './RepeatIcon';
 export * from './PlusIcon';

@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-export const ToolbarButtonContainer = styled.button`
+export const ToolbarGenerateButtonContainer = styled.button`
   display: flex;
   align-items: center;
   gap: 4px;
