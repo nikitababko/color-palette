@@ -39,10 +39,11 @@ export const ColorsWrapper: React.FC = () => {
     <DndContext onDragEnd={handleDragEnd}>
       <SortableContext items={colors}>
         <ColorsContainer>
-          {colors.map((color) => (
+          {colors.map((color, index) => (
             <Color
               key={color.id}
-              color={color}
+              color={{ ...color }}
+              colorIndex={index}
               colorsLength={colors.length}
             />
           ))}

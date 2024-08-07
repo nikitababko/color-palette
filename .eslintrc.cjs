@@ -119,7 +119,8 @@ module.exports = {
                         ]
                     }
                 ],
-                "unicorn/no-null": "off"
+                "unicorn/no-null": "off",
+                "unicorn/no-keyword-prefix": "off"
             }
         },
         {

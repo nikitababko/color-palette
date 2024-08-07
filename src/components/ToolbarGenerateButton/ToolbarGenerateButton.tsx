@@ -3,15 +3,7 @@ import { useSetAtom } from 'jotai';
 import { storeColors } from '../../store/store';
 import { RepeatIcon } from '../Icons';
 import { ToolbarButton } from '../ToolbarButton';
-
-const getRandomHexColor = () => {
-  const randomValue = Math.floor(
-    // eslint-disable-next-line unicorn/number-literal-case
-    Math.random() * 0xff_ff_ff,
-  );
-  const hexValue = randomValue.toString(16);
-  return `#${hexValue.padStart(6, '0')}`;
-};
+import { getRandomHexColor } from '../../helpers';
 
 export const ToolbarGenerateButton: React.FC = () => {
   const setColors = useSetAtom(storeColors);
