@@ -70,6 +70,29 @@ export const Color: React.FC<ColorProps> = ({
     });
   };
 
+  useEffect(() => {
+    if (
+      !isOpenedColorPicker &&
+      color.id === colorProperty.id
+    ) {
+      setColors((previousState) => {
+        return previousState.map((item) => {
+          if (item.id === color.id) {
+            return { ...item, hex: color.hex };
+          }
+
+          return item;
+        });
+      });
+    }
+  }, [
+    color.hex,
+    color.id,
+    colorProperty.id,
+    isOpenedColorPicker,
+    setColors,
+  ]);
+
   const isMaxColorCount = colorsLength >= 10;
 
   return (
