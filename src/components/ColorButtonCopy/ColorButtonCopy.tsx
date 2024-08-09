@@ -16,7 +16,7 @@ export const ColorButtonCopy: React.FC<
 
   const handleCopy = () => {
     navigator.clipboard
-      .writeText(color)
+      .writeText(color.hex)
       .then(() => {
         setIsCopied(true);
       })

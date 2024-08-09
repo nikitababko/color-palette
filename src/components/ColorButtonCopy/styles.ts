@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { MEDIA_QUERY_MAX_WIDTH_1279 } from '../../constants';
 
 export const ColorButtonCopyContainer = styled.button`
   cursor: copy;
@@ -15,6 +16,7 @@ export const CopyButtonMessage = styled.div<{
   z-index: 3;
   transform: translate(-50%, 100%);
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 10px;
   width: fit-content;
@@ -42,6 +44,15 @@ export const CopyButtonMessage = styled.div<{
 
     100% {
       opacity: 0;
+    }
+  }
+
+  @media (max-width: ${MEDIA_QUERY_MAX_WIDTH_1279}px) {
+    width: 80%;
+    font-size: 50px;
+    svg {
+      width: 50px;
+      height: 50px;
     }
   }
 `;

@@ -60,7 +60,11 @@ export const Color: React.FC<ColorProps> = ({
       const newState = [...previousState];
       const hex = getRandomHexColor();
 
-      newState.splice(colorIndex, 0, {
+      const groupSize = 2;
+      const groupIndex = Math.floor(colorIndex / groupSize);
+      const insertIndex = groupIndex * groupSize + 1;
+
+      newState.splice(insertIndex, 0, {
         id: `${hex}-${Math.random()}`,
         hex,
         isLocked: false,
@@ -94,6 +98,8 @@ export const Color: React.FC<ColorProps> = ({
   ]);
 
   const isMaxColorCount = colorsLength >= 10;
+  const isFirstElement = colorIndex === 0;
+  const isLastElement = colorsLength - 1 === colorIndex;
 
   return (
     <ColorContainer
@@ -104,9 +110,15 @@ export const Color: React.FC<ColorProps> = ({
     >
       {!isMaxColorCount && (
         <React.Fragment>
-          {colorIndex !== 0 && (
-            <ColorBar left={0} right="auto">
+          {!isFirstElement && (
+            <ColorBar
+              top={0}
+              right="auto"
+              bottom="auto"
+              left={0}
+            >
               <CircleAdd
+                top="-23px"
                 left="-23px"
                 onClick={handleAddColor}
               >
@@ -115,11 +127,22 @@ export const Color: React.FC<ColorProps> = ({
             </ColorBar>
           )}
 
-          <ColorBar left="auto" right={0}>
-            <CircleAdd left="23px" onClick={handleAddColor}>
-              <PlusIcon />
-            </CircleAdd>
-          </ColorBar>
+          {!isLastElement && (
+            <ColorBar
+              top="auto"
+              right={0}
+              bottom={0}
+              left="auto"
+            >
+              <CircleAdd
+                top="23px"
+                left="23px"
+                onClick={handleAddColor}
+              >
+                <PlusIcon />
+              </CircleAdd>
+            </ColorBar>
+          )}
         </React.Fragment>
       )}
 

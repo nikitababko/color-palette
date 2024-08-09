@@ -1,0 +1,1 @@
+export const MEDIA_QUERY_MAX_WIDTH_1279 = 1279;
