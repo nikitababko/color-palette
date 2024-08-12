@@ -90,6 +90,7 @@ module.exports = {
                 "@typescript-eslint/consistent-type-imports": [
                     "error"
                 ],
+                "react/react-in-jsx-scope": "off",
                 "react/no-multi-comp": [
                     "error"
                 ],

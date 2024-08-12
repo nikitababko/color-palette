@@ -4,7 +4,7 @@ import { ToolbarContainer } from './styles';
 
 export const Toolbar: React.FC = () => {
   return (
-    <ToolbarContainer>
+    <ToolbarContainer data-testid="ToolbarContainer">
       <ToolbarGenerateButton />
     </ToolbarContainer>
   );

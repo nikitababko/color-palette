@@ -10,5 +10,8 @@
     "noEmit": false,
     "outDir": "./dist/node",
     "jsx": "react-jsx"
-  }
+  },
+  "exclude": [
+    "src/components/App/App.test.tsx"
+  ]
 }

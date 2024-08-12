@@ -40,7 +40,10 @@ export const ColorButtonCopy: React.FC<
   }, [isCopied, animationMs]);
 
   return (
-    <ColorButtonCopyContainer onClick={handleCopy}>
+    <ColorButtonCopyContainer
+      data-testid="ColorButtonCopyContainer"
+      onClick={handleCopy}
+    >
       <CopyIcon />
 
       {isCopied &&

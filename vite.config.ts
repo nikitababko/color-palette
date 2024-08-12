@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import wyw from '@wyw-in-js/vite';
+import VitePluginReactRemoveAttributes from 'vite-plugin-react-remove-attributes';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,9 @@ export default defineConfig({
         ],
       },
     }),
+    VitePluginReactRemoveAttributes({
+      attributes: ['data-testid'],
+    }),
   ],
   server: {
     port: 3000,
@@ -23,5 +27,10 @@ export default defineConfig({
   build: {
     outDir: './dist',
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+      },
+    },
   },
 });

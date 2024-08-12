@@ -163,6 +163,7 @@ export const Color: React.FC<ColorProps> = ({
       {isOpenedColorPicker && (
         <ColorPickerWrapper
           ref={colorPickerWrapperReference}
+          data-testid="color-picker"
         >
           <ColorPicker
             color={color?.hex}

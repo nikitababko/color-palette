@@ -8,7 +8,7 @@ import { useAtom } from 'jotai';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types';
 import { storeColors } from '../../store/store';
 import { Color } from '../Color';
-import { ColorsContainer } from './styles';
+import { ColorsWrapperContainer } from './styles';
 
 export const ColorsWrapper: React.FC = () => {
   const [colors, setColors] = useAtom(storeColors);
@@ -38,7 +38,7 @@ export const ColorsWrapper: React.FC = () => {
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <SortableContext items={colors}>
-        <ColorsContainer>
+        <ColorsWrapperContainer data-testid="ColorsWrapperContainer">
           {colors.map((color, index) => (
             <Color
               key={color.id}
@@ -47,7 +47,7 @@ export const ColorsWrapper: React.FC = () => {
               colorsLength={colors.length}
             />
           ))}
-        </ColorsContainer>
+        </ColorsWrapperContainer>
       </SortableContext>
     </DndContext>
   );
