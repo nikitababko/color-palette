@@ -26,7 +26,10 @@ export const ColorButtonLock: React.FC<
   };
 
   return (
-    <ColorButtonLockContainer onClick={handleLock}>
+    <ColorButtonLockContainer
+      data-testid="ColorButtonLockContainer"
+      onClick={handleLock}
+    >
       {color?.isLocked ? (
         <LockCloseIcon />
       ) : (

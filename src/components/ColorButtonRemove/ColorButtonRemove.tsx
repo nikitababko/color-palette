@@ -19,7 +19,10 @@ export const ColorButtonRemove: React.FC<
   };
 
   return (
-    <ColorButtonRemoveContainer onClick={handleRemove}>
+    <ColorButtonRemoveContainer
+      data-testid="ColorButtonRemoveContainer"
+      onClick={handleRemove}
+    >
       <CrossIcon />
     </ColorButtonRemoveContainer>
   );

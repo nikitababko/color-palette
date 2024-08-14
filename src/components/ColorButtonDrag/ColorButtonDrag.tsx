@@ -8,6 +8,7 @@ export const ColorButtonDrag: React.FC<
 > = ({ dragListeners, dragAttributes }) => {
   return (
     <ColorButtonDragContainer
+      data-testid="color-button-drag"
       {...dragListeners}
       {...dragAttributes}
     >
