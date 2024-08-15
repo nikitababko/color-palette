@@ -103,6 +103,7 @@ module.exports = {
                         ]
                     }
                 ],
+                "no-restricted-syntax": "off",
                 "unicorn/filename-case": [
                     "error",
                     {
