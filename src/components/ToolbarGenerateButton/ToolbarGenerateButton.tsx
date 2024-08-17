@@ -25,6 +25,7 @@ export const ToolbarGenerateButton: React.FC = () => {
 
   return (
     <ToolbarGenerateButtonContainer
+      data-testid="ToolbarGenerateButtonContainer"
       onClick={handleGenerate}
     >
       <RepeatIcon />

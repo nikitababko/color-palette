@@ -28,21 +28,21 @@ const TestComponent: React.FC<{
 
 describe('useOutsideClick hook', () => {
   it('calls callback when click is outside the referenced elements', () => {
-    const onOutsideClick = vi.fn(); // создаем мок-функцию
+    const onOutsideClick = vi.fn();
 
     const { getByTestId } = render(
       <TestComponent onOutsideClick={onOutsideClick} />,
     );
 
-    // Имитация клика внутри первого элемента, коллбэк не должен вызываться
+    // Simulate a click inside the first element, the callback should not be called
     fireEvent.mouseDown(getByTestId('inside1'));
     expect(onOutsideClick).not.toHaveBeenCalled();
 
-    // Имитация клика внутри второго элемента, коллбэк не должен вызываться
+    // Simulate a click inside the first element, the callback should not be called
     fireEvent.mouseDown(getByTestId('inside2'));
     expect(onOutsideClick).not.toHaveBeenCalled();
 
-    // Имитация клика за пределами элементов, коллбэк должен вызываться
+    // Simulate a click inside the first element, the callback should not be called
     fireEvent.mouseDown(getByTestId('outside'));
     expect(onOutsideClick).toHaveBeenCalled();
   });
