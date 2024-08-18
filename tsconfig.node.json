@@ -12,6 +12,6 @@
     "jsx": "react-jsx"
   },
   "exclude": [
-    "src/components/App/App.test.tsx"
+    "src/components/App/App.unit.test.tsx"
   ]
 }

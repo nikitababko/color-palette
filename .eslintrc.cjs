@@ -117,8 +117,9 @@ module.exports = {
                     "error",
                     {
                         "ignore": [
-                            "Props"
-                        ]
+                            "Props",
+                            "\\.e2e.test$",
+                        ],
                     }
                 ],
                 "unicorn/no-null": "off",

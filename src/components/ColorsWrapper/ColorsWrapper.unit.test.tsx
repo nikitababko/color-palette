@@ -1,4 +1,4 @@
-// ColorsWrapper.test.tsx
+// ColorsWrapper.unit.test.tsx
 import React from 'react';
 import {
   fireEvent,

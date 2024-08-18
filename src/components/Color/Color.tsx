@@ -154,6 +154,7 @@ export const Color: React.FC<ColorProps> = ({
       />
 
       <ColorText
+        data-testid="ColorText"
         ref={colorNameReference}
         onClick={() => setIsOpenedColorPicker(true)}
       >
@@ -163,7 +164,7 @@ export const Color: React.FC<ColorProps> = ({
       {isOpenedColorPicker && (
         <ColorPickerWrapper
           ref={colorPickerWrapperReference}
-          data-testid="color-picker"
+          data-testid="ColorPickerWrapper"
         >
           <ColorPicker
             color={color?.hex}
