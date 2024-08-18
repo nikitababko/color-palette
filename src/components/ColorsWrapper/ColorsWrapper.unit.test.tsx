@@ -1,5 +1,3 @@
-// ColorsWrapper.unit.test.tsx
-import React from 'react';
 import {
   fireEvent,
   render,

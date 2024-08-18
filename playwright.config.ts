@@ -77,7 +77,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm start:test:server',
+    command: 'pnpm start:e2e:test:server',
     url: 'http://localhost:3002',
     reuseExistingServer: !process.env.CI,
   },
