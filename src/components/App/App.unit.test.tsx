@@ -6,11 +6,7 @@ describe('App Component', () => {
   it('renders the App component', () => {
     const { getByTestId } = render(<App />);
 
-    expect(
-      getByTestId('ToolbarContainer'),
-    ).toBeInTheDocument();
-    expect(
-      getByTestId('ColorsWrapperContainer'),
-    ).toBeInTheDocument();
+    expect(getByTestId('ToolbarContainer')).toBeInTheDocument();
+    expect(getByTestId('ColorsWrapperContainer')).toBeInTheDocument();
   });
 });

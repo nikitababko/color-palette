@@ -2,14 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { ColorButtonCopyProps } from './types';
 import { CheckIcon, CopyIcon } from '../Icons';
-import {
-  ColorButtonCopyContainer,
-  CopyButtonMessage,
-} from './styles';
+import { ColorButtonCopyContainer, CopyButtonMessage } from './styles';
 
-export const ColorButtonCopy: React.FC<
-  ColorButtonCopyProps
-> = ({ color }) => {
+export const ColorButtonCopy: React.FC<ColorButtonCopyProps> = ({ color }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const animationMs = 3000;
@@ -21,9 +16,7 @@ export const ColorButtonCopy: React.FC<
         setIsCopied(true);
       })
       .catch((error) => {
-        throw new Error(
-          `Failed to copy text to clipboard: ${error}`,
-        );
+        throw new Error(`Failed to copy text to clipboard: ${error}`);
       });
   };
 
@@ -40,10 +33,7 @@ export const ColorButtonCopy: React.FC<
   }, [isCopied, animationMs]);
 
   return (
-    <ColorButtonCopyContainer
-      data-testid="ColorButtonCopyContainer"
-      onClick={handleCopy}
-    >
+    <ColorButtonCopyContainer data-testid="ColorButtonCopyContainer" onClick={handleCopy}>
       <CopyIcon />
 
       {isCopied &&

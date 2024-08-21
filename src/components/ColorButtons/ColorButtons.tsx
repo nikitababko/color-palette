@@ -11,21 +11,14 @@ export const ColorButtons: React.FC<ColorButtonsProps> = ({
   colorsLength,
   dragListeners,
   dragAttributes,
-}) => {
-  return (
-    <ColorButtonsContainer>
-      {colorsLength > 2 && (
-        <ColorButtonRemove color={color} />
-      )}
+}) => (
+  <ColorButtonsContainer>
+    {colorsLength > 2 && <ColorButtonRemove color={color} />}
 
-      <ColorButtonCopy color={color} />
+    <ColorButtonCopy color={color} />
 
-      <ColorButtonDrag
-        dragListeners={dragListeners}
-        dragAttributes={dragAttributes}
-      />
+    <ColorButtonDrag dragListeners={dragListeners} dragAttributes={dragAttributes} />
 
-      <ColorButtonLock color={color} />
-    </ColorButtonsContainer>
-  );
-};
+    <ColorButtonLock color={color} />
+  </ColorButtonsContainer>
+);

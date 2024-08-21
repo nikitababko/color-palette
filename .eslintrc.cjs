@@ -63,7 +63,7 @@ module.exports = {
                 "@typescript-eslint/no-magic-numbers": "off",
                 "import/prefer-default-export": "off",
                 "@typescript-eslint/indent": "off",
-                "arrow-body-style": "off",
+                "arrow-body-style": ["error", "as-needed"],
                 "import/no-extraneous-dependencies": [
                     "error",
                     {

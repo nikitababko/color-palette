@@ -5,17 +5,13 @@ import { CrossIcon } from '../Icons';
 import { ColorButtonRemoveContainer } from './styles';
 import { storeColors } from '../../store/store';
 
-export const ColorButtonRemove: React.FC<
-  ColorButtonRemoveProps
-> = ({ color }) => {
+export const ColorButtonRemove: React.FC<ColorButtonRemoveProps> = ({ color }) => {
   const setColors = useSetAtom(storeColors);
 
   const handleRemove = () => {
-    setColors((previousState) => {
-      return previousState.filter((previousStateColor) => {
-        return previousStateColor.id !== color.id;
-      });
-    });
+    setColors((previousState) =>
+      previousState.filter((previousStateColor) => previousStateColor.id !== color.id),
+    );
   };
 
   return (

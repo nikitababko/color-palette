@@ -1,18 +1,5 @@
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ColorButtonCopy } from './ColorButtonCopy';
 
 describe('ColorButtonCopy Component', () => {
@@ -43,29 +30,17 @@ describe('ColorButtonCopy Component', () => {
   it('renders the component and copies the color to clipboard', async () => {
     render(<ColorButtonCopy color={mockColor} />);
 
-    const copyButton = screen.getByTestId(
-      'ColorButtonCopyContainer',
-    );
+    const copyButton = screen.getByTestId('ColorButtonCopyContainer');
 
     fireEvent.click(copyButton);
 
-    expect(
-      navigator.clipboard.writeText,
-    ).toHaveBeenCalledWith(mockColor.hex);
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(mockColor.hex);
 
-    expect(
-      await screen.findByText(
-        /color copied to the clipboard/i,
-      ),
-    ).toBeInTheDocument();
+    expect(await screen.findByText(/color copied to the clipboard/i)).toBeInTheDocument();
 
     await waitFor(
       () => {
-        expect(
-          screen.queryByText(
-            /color copied to the clipboard/i,
-          ),
-        ).not.toBeInTheDocument();
+        expect(screen.queryByText(/color copied to the clipboard/i)).not.toBeInTheDocument();
       },
       {
         timeout: 3000,

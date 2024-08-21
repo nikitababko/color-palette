@@ -24,8 +24,7 @@ export const CopyButtonMessage = styled.div<{
   background-color: #222;
   color: #fff;
   font-size: 26px;
-  animation: copyButtonMessageAnimation
-    ${({ animationMs }) => animationMs}ms ease-in-out;
+  animation: copyButtonMessageAnimation ${({ animationMs }) => animationMs}ms ease-in-out;
   opacity: 0;
   visibility: hidden;
 

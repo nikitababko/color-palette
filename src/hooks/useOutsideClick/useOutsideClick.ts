@@ -7,27 +7,18 @@ export const useOutsideClick = (
 ) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const isOutside = references.every((reference) => {
-        return (
-          reference.current &&
-          !reference.current.contains(event.target as Node)
-        );
-      });
+      const isOutside = references.every(
+        (reference) => reference.current && !reference.current.contains(event.target as Node),
+      );
       if (isOutside) {
         callback();
       }
     };
 
-    document.addEventListener(
-      'mousedown',
-      handleClickOutside,
-    );
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener(
-        'mousedown',
-        handleClickOutside,
-      );
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [references, callback]);
 };

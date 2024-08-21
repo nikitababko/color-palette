@@ -1,8 +1,4 @@
-import {
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import type { Mock } from 'vitest';
 import { describe, expect, it, vi } from 'vitest';
 import { useSetAtom } from 'jotai';
@@ -21,9 +17,7 @@ describe('ToolbarGenerateButton Component', () => {
   it('renders the ToolbarGenerateButton component', () => {
     render(<ToolbarGenerateButton />);
 
-    const buttonContainer = screen.getByTestId(
-      'ToolbarGenerateButtonContainer',
-    );
+    const buttonContainer = screen.getByTestId('ToolbarGenerateButtonContainer');
     expect(buttonContainer).toBeInTheDocument();
   });
 
@@ -33,9 +27,7 @@ describe('ToolbarGenerateButton Component', () => {
 
     render(<ToolbarGenerateButton />);
 
-    const buttonContainer = screen.getByTestId(
-      'ToolbarGenerateButtonContainer',
-    );
+    const buttonContainer = screen.getByTestId('ToolbarGenerateButtonContainer');
     fireEvent.click(buttonContainer);
 
     expect(mockSetColors).toHaveBeenCalled();
@@ -46,21 +38,15 @@ describe('ToolbarGenerateButton Component', () => {
       { hex: '#000000', isLocked: false },
       { hex: '#111111', isLocked: true },
     ];
-    const mockSetColors = vi.fn((updateFunction) => {
-      return updateFunction(initialState);
-    });
+    const mockSetColors = vi.fn((updateFunction) => updateFunction(initialState));
     (useSetAtom as Mock).mockReturnValue(mockSetColors);
 
     render(<ToolbarGenerateButton />);
 
-    const buttonContainer = screen.getByTestId(
-      'ToolbarGenerateButtonContainer',
-    );
+    const buttonContainer = screen.getByTestId('ToolbarGenerateButtonContainer');
     fireEvent.click(buttonContainer);
 
-    expect(mockSetColors).toHaveBeenCalledWith(
-      expect.any(Function),
-    );
+    expect(mockSetColors).toHaveBeenCalledWith(expect.any(Function));
 
     // Check that getRandomHexColor was called and applied to colors that are not locked
     expect(getRandomHexColor).toHaveBeenCalled();

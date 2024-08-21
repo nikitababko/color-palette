@@ -10,10 +10,7 @@ export default defineConfig({
     wyw({
       include: ['**/*.{ts,tsx}'],
       babelOptions: {
-        presets: [
-          '@babel/preset-typescript',
-          '@babel/preset-react',
-        ],
+        presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
     }),
     VitePluginReactRemoveAttributes({

@@ -30,9 +30,7 @@ describe('useOutsideClick hook', () => {
   it('calls callback when click is outside the referenced elements', () => {
     const onOutsideClick = vi.fn();
 
-    const { getByTestId } = render(
-      <TestComponent onOutsideClick={onOutsideClick} />,
-    );
+    const { getByTestId } = render(<TestComponent onOutsideClick={onOutsideClick} />);
 
     // Simulate a click inside the first element, the callback should not be called
     fireEvent.mouseDown(getByTestId('inside1'));

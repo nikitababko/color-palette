@@ -17,9 +17,7 @@ describe('ColorButtonDrag', () => {
     const { getByRole } = render(
       <ColorButtonDrag
         dragListeners={mockDragListeners}
-        dragAttributes={
-          mockDragAttributes as DraggableAttributes
-        }
+        dragAttributes={mockDragAttributes as DraggableAttributes}
       />,
     );
 
@@ -31,27 +29,17 @@ describe('ColorButtonDrag', () => {
     const { getByRole } = render(
       <ColorButtonDrag
         dragListeners={mockDragListeners}
-        dragAttributes={
-          mockDragAttributes as DraggableAttributes
-        }
+        dragAttributes={mockDragAttributes as DraggableAttributes}
       />,
     );
 
     const buttonElement = getByRole('button');
 
-    buttonElement.dispatchEvent(
-      new MouseEvent('mousedown', { bubbles: true }),
-    );
-    expect(
-      mockDragListeners.onMouseDown,
-    ).toHaveBeenCalled();
+    buttonElement.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+    expect(mockDragListeners.onMouseDown).toHaveBeenCalled();
 
-    buttonElement.dispatchEvent(
-      new TouchEvent('touchstart', { bubbles: true }),
-    );
-    expect(
-      mockDragListeners.onTouchStart,
-    ).toHaveBeenCalled();
+    buttonElement.dispatchEvent(new TouchEvent('touchstart', { bubbles: true }));
+    expect(mockDragListeners.onTouchStart).toHaveBeenCalled();
 
     expect(buttonElement).toHaveAttribute('role', 'button');
   });
@@ -60,14 +48,10 @@ describe('ColorButtonDrag', () => {
     const { container } = render(
       <ColorButtonDrag
         dragListeners={mockDragListeners}
-        dragAttributes={
-          mockDragAttributes as DraggableAttributes
-        }
+        dragAttributes={mockDragAttributes as DraggableAttributes}
       />,
     );
 
-    expect(
-      container.querySelector('svg'),
-    ).toBeInTheDocument();
+    expect(container.querySelector('svg')).toBeInTheDocument();
   });
 });

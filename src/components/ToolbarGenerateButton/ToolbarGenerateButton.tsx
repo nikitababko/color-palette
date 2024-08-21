@@ -9,8 +9,8 @@ export const ToolbarGenerateButton: React.FC = () => {
   const setColors = useSetAtom(storeColors);
 
   const handleGenerate = () => {
-    setColors((previousState) => {
-      return previousState.map((color) => {
+    setColors((previousState) =>
+      previousState.map((color) => {
         if (color.isLocked) {
           return color;
         }
@@ -19,8 +19,8 @@ export const ToolbarGenerateButton: React.FC = () => {
           ...color,
           hex: getRandomHexColor(),
         };
-      });
-    });
+      }),
+    );
   };
 
   return (

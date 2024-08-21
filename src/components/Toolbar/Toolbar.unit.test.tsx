@@ -6,18 +6,14 @@ describe('Toolbar Component', () => {
   it('renders the Toolbar component', () => {
     render(<Toolbar />);
 
-    const toolbarContainer = screen.getByTestId(
-      'ToolbarContainer',
-    );
+    const toolbarContainer = screen.getByTestId('ToolbarContainer');
     expect(toolbarContainer).toBeInTheDocument();
   });
 
   it('contains the ToolbarGenerateButton', () => {
     render(<Toolbar />);
 
-    const generateButton = screen.getByTestId(
-      'ToolbarGenerateButtonContainer',
-    );
+    const generateButton = screen.getByTestId('ToolbarGenerateButtonContainer');
     expect(generateButton).toBeInTheDocument();
   });
 });

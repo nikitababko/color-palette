@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  arrayMove,
-  SortableContext,
-} from '@dnd-kit/sortable';
+import { arrayMove, SortableContext } from '@dnd-kit/sortable';
 import { DndContext } from '@dnd-kit/core';
 import { useAtom } from 'jotai';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types';
@@ -17,15 +14,9 @@ export const ColorsWrapper: React.FC = () => {
     const { active, over } = event;
 
     setColors((previousState) => {
-      const fromIndex = previousState.findIndex(
-        (item) => item.id === active.id,
-      );
+      const fromIndex = previousState.findIndex((item) => item.id === active.id);
 
-      const toIndex = over
-        ? previousState.findIndex(
-            (item) => item.id === over.id,
-          )
-        : -1;
+      const toIndex = over ? previousState.findIndex((item) => item.id === over.id) : -1;
 
       if (fromIndex === -1 || toIndex === -1) {
         return previousState;

@@ -7,12 +7,8 @@ test.describe('ToolbarGenerateButton Component', () => {
     }
   });
 
-  test('should render the ToolbarGenerateButton component', async ({
-    page,
-  }) => {
-    const buttonContainer = await page.getByTestId(
-      'ToolbarGenerateButtonContainer',
-    );
+  test('should render the ToolbarGenerateButton component', async ({ page }) => {
+    const buttonContainer = await page.getByTestId('ToolbarGenerateButtonContainer');
     await expect(buttonContainer).toBeVisible();
   });
 });

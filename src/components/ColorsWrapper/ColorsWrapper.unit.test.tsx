@@ -1,8 +1,4 @@
-import {
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { createStore, Provider } from 'jotai';
 import { ColorsWrapper } from './ColorsWrapper';
@@ -53,9 +49,7 @@ describe('ColorsWrapper Component', () => {
     renderWithStore(colors);
 
     for (const color of colors) {
-      expect(
-        screen.getByText(color.id),
-      ).toBeInTheDocument();
+      expect(screen.getByText(color.id)).toBeInTheDocument();
     }
   });
 
@@ -85,9 +79,7 @@ describe('ColorsWrapper Component', () => {
     const updatedColors = [colors[1], colors[2], colors[0]];
 
     for (const color of updatedColors) {
-      expect(
-        screen.getByText(color.id),
-      ).toBeInTheDocument();
+      expect(screen.getByText(color.id)).toBeInTheDocument();
     }
   });
 });

@@ -72,15 +72,9 @@ export const ColorContainer = styled.div<{
   gap: 20px;
   flex: 1;
   padding: 4px;
-  background-color: ${({ backgroundColor }) => {
-    return backgroundColor;
-  }};
-  transition: ${({ transition }) => {
-    return transition || 'none';
-  }};
-  transform: ${({ transform }) => {
-    return transform || 'none';
-  }};
+  background-color: ${({ backgroundColor }) => backgroundColor};
+  transition: ${({ transition }) => transition || 'none'};
+  transform: ${({ transform }) => transform || 'none'};
 
   @media (max-width: ${MEDIA_QUERY_MAX_WIDTH_1279}px) {
     padding: 10px;

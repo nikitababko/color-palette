@@ -3,16 +3,15 @@ import type { ColorButtonLockProps } from './types';
 import { DragIcon } from '../Icons';
 import { ColorButtonDragContainer } from './styles';
 
-export const ColorButtonDrag: React.FC<
-  ColorButtonLockProps
-> = ({ dragListeners, dragAttributes }) => {
-  return (
-    <ColorButtonDragContainer
-      data-testid="color-button-drag"
-      {...dragListeners}
-      {...dragAttributes}
-    >
-      <DragIcon />
-    </ColorButtonDragContainer>
-  );
-};
+export const ColorButtonDrag: React.FC<ColorButtonLockProps> = ({
+  dragListeners,
+  dragAttributes,
+}) => (
+  <ColorButtonDragContainer
+    data-testid="color-button-drag"
+    {...dragListeners}
+    {...dragAttributes}
+  >
+    <DragIcon />
+  </ColorButtonDragContainer>
+);
