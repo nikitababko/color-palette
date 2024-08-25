@@ -1,5 +1,10 @@
 {
   "name": "color-palette",
+  "author": {
+    "name": "Nikita Babko",
+    "email": "niki.babko@gmail.com",
+    "url": "https://nikitababko.github.io"
+  },
   "private": true,
   "version": "0.0.0",
   "scripts": {
